@@ -1,7 +1,3 @@
-Certainly! Here is a proofread version of your README file:
-
----
-
 # Meteorites Catalog
 
 This project is a simple REST application that can be deployed on a Kubernetes cluster and allows interaction with a copy of [NASA's Meteorite Landings Data Set](https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh/about_data).
