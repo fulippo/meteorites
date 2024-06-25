@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-svc
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "db.defaultLabels" . | nindent 4 }}
+spec:
+  ports:
+    - port: 3306
+  selector:
+    {{- include "db.defaultLabels" . | nindent 4 }}
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-pma-svc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/component: tool
+    app.kubernetes.io/name: {{ .Values.name }}-pma
+    app.kubernetes.io/version: {{ .Chart.Version }}
+    app: {{ .Values.name }}-pma
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    tier: application
+spec:
+  type: NodePort
+  ports:
+    - port: {{ .Values.pma.port }}
+      targetPort: 80
+  selector:
+    app.kubernetes.io/component: tool
+    app.kubernetes.io/name: {{ .Values.name }}-pma
+    app.kubernetes.io/version: {{ .Chart.Version }}
+    app: {{ .Values.name }}-pma
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    tier: application

@@ -1,0 +1,16 @@
+---
+name: "meteorites-db"
+namespace: "planet-earth"
+version: "1.0.0"
+app:
+  storageSize: 10Gi
+  storageClaimSize: 5Gi
+  envs:
+    MYSQL_USER: "mysql"
+    MYSQL_HOST: "meteorites-db-svc"
+  secrets:
+    MYSQL_ROOT_PASSWORD: "iamroot"
+    MYSQL_PASSWORD: "changeme"
+    MYSQL_DATABASE: "mysql"
+pma: #phpmyadmin
+  port: 8081

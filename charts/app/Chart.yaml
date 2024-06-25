@@ -1,0 +1,9 @@
+apiVersion: v2
+description: Example CRUD app to interact with NASA's meteorites catalog
+maintainers:
+- name: Filippo Pisano
+  url: https://github.com/fulippo
+name: meteorites-app
+sources:
+- https://github.com/fulippo/exploration-company/charts/app
+version: 1.0.0

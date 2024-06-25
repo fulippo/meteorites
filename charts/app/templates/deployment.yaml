@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name | quote }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "helper.defaultLabels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "helper.defaultLabels" . | nindent 6 }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        {{- include "helper.defaultLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - image: docker.io/fulippo/flask-api-app
+        name: flask-app
+        envFrom:
+        - secretRef:
+            name: {{ .Values.name }}-secrets
+        - configMapRef:
+            name: {{ .Values.name }}-cm
+        ports:
+        - containerPort: {{ .Values.app.port }}
+          name: flask
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: {{ .Values.app.port }}
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+        resources:
+          requests:
+            cpu: 200m
+            memory: 1Gi
+        
+      

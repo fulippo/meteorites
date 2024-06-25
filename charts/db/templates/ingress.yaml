@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.name }}-pma-ingress
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /myadmin
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.name }}-pma-svc
+                port:
+                  number: {{ .Values.pma.port }}

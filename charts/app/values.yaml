@@ -1,0 +1,13 @@
+---
+name: "meteorites-catalog"
+namespace: "planet-earth"
+version: "1.0.0"
+app:
+  port: 8080
+  envs:
+    MYSQL_USER: "mysql"
+    MYSQL_HOST: "meteorites-db-svc"
+  secrets:
+    MYSQL_ROOT_PASSWORD: "iamroot"
+    MYSQL_PASSWORD: "changeme"
+    MYSQL_DATABASE: "meteorites_app"

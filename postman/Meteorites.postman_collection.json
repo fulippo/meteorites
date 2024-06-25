@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "cf1ddb94-1b80-4b60-9845-027fa9eafaad",
+		"name": "Meteorites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "479062"
+	},
+	"item": [
+		{
+			"name": "get_meteorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/meteorites",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"meteorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_meteorites/[id:int]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/meteorites/57459",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"meteorites",
+						"57459"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_meteorite",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"nametype\": \"test\",\n    \"recclass\": \"test\",\n    \"gmass\": \"test\",\n    \"fall\": \"test\",\n    \"year\": \"2024\",\n    \"reclat\": \"0.000\",\n    \"reclong\": \"0.000\",\n    \"geoLocation\": \"(0.00,0.00)\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/meteorites",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"meteorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_meteorite/[id:int]",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test updated\",\n    \"nametype\": \"test\",\n    \"recclass\": \"test\",\n    \"gmass\": \"test\",\n    \"fall\": \"test\",\n    \"year\": \"2024\",\n    \"reclat\": \"0.000\",\n    \"reclong\": \"0.000\",\n    \"geoLocation\": \"(0.00,0.00)\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/meteorites/57459",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"meteorites",
+						"57459"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_meteorites/[id:int]",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/meteorites/57459",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"meteorites",
+						"57459"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://127.0.0.1:49666",
+			"type": "string"
+		}
+	]
+}

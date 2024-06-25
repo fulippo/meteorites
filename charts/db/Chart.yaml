@@ -1,0 +1,9 @@
+apiVersion: v2
+description: MySQL based database application
+maintainers:
+- name: Filippo Pisano
+  url: https://github.com/fulippo
+name: mysql
+sources:
+- https://github.com/fulippo/exploration-company/charts/db
+version: 1.0.0
